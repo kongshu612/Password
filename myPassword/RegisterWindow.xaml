@@ -1,0 +1,27 @@
+﻿<Window x:Class="myPassword.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:myPassword"
+        Title="RegisterWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" >
+    <Window.DataContext>
+        <local:RegisterWindowViewModel/>
+    </Window.DataContext>
+    <Grid Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="txt_UserName" Margin="10" Grid.Row="0" Grid.Column="1" MinWidth="100"/>
+        <TextBox Name="txt_Password" Margin="10" Grid.Row="1" Grid.Column="1" MinWidth="100"/>
+        <Label Content="用户名：" Margin="10" MinWidth="100"/>
+        <Label Content="密码：" Margin="10" Grid.Row="1" MinWidth="100"/>
+        <Button Name="btn_Ok" Content="确定"  Margin="10" Grid.Row="2" Command="{Binding RegisterNewUser}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Window}}}"/>
+        <Button Name="btn_Cancel" Content="取消" Margin="10" Grid.Row="2" Grid.Column="1" Click="btnCancel_Click" />
+
+    </Grid>
+</Window>
